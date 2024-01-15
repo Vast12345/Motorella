@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorella About</title>
+    <link rel="stylesheet" href="/docs/styles/motorella-about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="header">
+        <ul class="nav-bar">
+            <input type="checkbox" id="check">
+            <span class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="Project-Product.html">Products</a></li>
+                <li><a href="Project-Contact.html">Contacts</a></li>
+                <li><a href="Project-About.html">About</a></li>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </ul>
+    </nav>
+    <div class="about-title">
+        <p>About Us</p>
+        <div class="line"></div>
+    </div>
+    <section class="container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="slide-1" src="Project-Images/IMG_1268.jpeg" alt="">
+                <img id="slide-2" src="Project-Images/IMG_1266.jpeg" alt="">
+                <img id="slide-3" src="Project-Images/IMG_1265.jpeg" alt="">
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+        </div>
+    </section>
+    <div class="main">
+        <div class="us-container">
+            <p id="thesis">What we're about</p>
+            <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum pariatur, non veniam ullam
+                quos vitae eius natus qui cum eligendi quis quas omnis esse tempore optio culpa odit voluptas excepturi.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro debitis, voluptatibus, sequi, totam ut
+                id excepturi eum quaerat soluta facilis velit eligendi eos quam asperiores delectus illo perspiciatis
+                deserunt tempore?</p>
+        </div>
+        <div class="sticky-parent" id="slide1-container"> <!-- Sticky parent-->
+            <div class="sticky">
+                <div class="scroll_section">
+                    <img src="Project-Images/Screenshot_2023-11-21_112831.png" alt="">
+                    <div class="article-1">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum impedit, cumque possimus
+                            quae ipsam culpa, ratione labore exercitationem amet quisquam delectus aspernatur
+                            blanditiis. Incidunt numquam animi corporis ea unde beatae.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-parent" id="slide2-container">
+            <div class="sticky">
+                <div class="scroll_section">
+                    <div class="article-2">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum impedit, cumque possimus quae ipsam
+                            culpa, ratione labore exercitationem amet quisquam delectus aspernatur blanditiis. Incidunt numquam
+                            animi corporis ea unde beatae.
+                        </p>
+                    </div>
+                    <img src="Project-Images/Screenshot_2023-11-21_113346.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="sticky-parent" id="slide3-container">
+            <div class="img-3">
+                <img src="Project-Images/Motorella Staff.png    " alt="Motorella Staff">
+            </div>
+            <div class="article-3">
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quae error ipsa, dolore
+                    laudantium enim aut dolorem ipsum blanditiis magnam doloremque autem nulla veritatis animi, eos
+                    totam. Cupiditate, id atque.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top">
+            <div class="socials">
+                <a href="https://www.instagram.com/motorellacolombia/" target="_blank"><i
+                        class="fa-brands fa-instagram fa-2xl"></i></a>
+                <a href="https://www.facebook.com/MotorellaColombia/" target="_blank"><i
+                        class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a href="#" target="_blank"><i class="fa-regular fa-envelope fa-2xl"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="directions">
+                <p>Barrancabermeja - Santander</p>
+                <p>Dirección: Carrera 17 # 52 - 63.</p>
+                <p>Correo: servicioalcliente@motorella.net.com</p>
+                <p>Teléfono: +57 318 560 8850</p>
+            </div>
+            <div class="footer-logo"><img src="Project-Images/0a8bea61-3eea-49c9-89dd-f98280d7b273.jpg" alt="logo">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const stickySections = [...document.querySelectorAll(".sticky")];
+        const mediaQuery = window.matchMedia('(max-width:510px)');
+
+        window.addEventListener("scroll", (e) => {
+            for (let i = 0; i < stickySections.length; i++) {
+                transform(stickySections[i], mediaQuery);
+            }
+        })
+
+        function transform(section, media) {
+            const offsetTop = section.parentElement.offsetTop;
+            const scrollSection = section.querySelector('.scroll_section');
+            let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+            console.log(media)
+            if (media.matches) {
+                percentage = percentage < 0 ? 0 : percentage > 185 ? 185 : percentage;
+            } else {
+                percentage = percentage < 0 ? 0 : percentage > 95 ? 95 : percentage;
+            }
+            
+            scrollSection.style.transform = `translate3d(-${percentage}vw, 0, 0)`
+        }
+    </script>
+</body>
+
+</html>
