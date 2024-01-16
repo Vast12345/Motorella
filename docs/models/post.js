@@ -15,7 +15,6 @@
 //         })
 //         .finally(console.log("The operation has finished"))
 // }
-
 export async function post(object) {
     const url = "https://turbo-giggle-x5wx6rrp6r9936wxg-3000.app.github.dev/users";
 
@@ -30,9 +29,8 @@ export async function post(object) {
     try {
         let petition = await fetch(url, config);
         let data = await petition.text();
+        console.log(data)
     } catch (error) {
         console.error("Error POST." + error)
     }
-    
-    console.log(data)
 }
