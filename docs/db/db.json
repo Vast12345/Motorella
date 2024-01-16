@@ -1,40 +1,41 @@
 {
-    "products": [
-        {
-            "id": "1",
-            "name": "Trusaco Winner 3000",
-            "img": "/docs/HTML/Project-Images/Trusaco-Winner-5W30-504-507-LL-SYMBOL-8000-ET.jpg",
-            "price": "50.00"
-        },
-        {
-            "id": "2",
-            "name": "Liqui Moly Motorbike",
-            "img": "/docs/HTML/Project-Images/aceite_lubricante_liqui_moly_motorbike_hd_synth_20w_50_street_noxmart.jpg",
-            "price": "30.00"
-        },
-        {
-            "id": "3",
-            "name": "Total Energies",
-            "img": "/docs/HTML/Project-Images/37490-17853829.jpg",
-            "price": "200.00"
-        },
-        {
-            "id": "4",
-            "name": "Jerry Can",
-            "img": "/docs/HTML/Project-Images/plastic-jerry-can-isolated-white-background.jpg",
-            "price": "20.00"
-        },
-        {
-            "id": "5",
-            "name": "Automobile Oil Trio",
-            "img": "/docs/HTML/Project-Images/plastic-bottles-from-automobile-oils-isolated-white.jpg",
-            "price": "60.00"
-        },
-        {
-            "id": "6",
-            "name": "Automobile Oil Squad",
-            "img": "/docs/HTML/Project-Images/plastic-bottles-from-automobile-oils-isolated-white (1).jpg",
-            "price": "80.00"
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "name": "Trusaco Winner 3000",
+      "img": "/docs/HTML/Project-Images/Trusaco-Winner-5W30-504-507-LL-SYMBOL-8000-ET.jpg",
+      "price": "50.00"
+    },
+    {
+      "id": "2",
+      "name": "Liqui Moly Motorbike",
+      "img": "/docs/HTML/Project-Images/aceite_lubricante_liqui_moly_motorbike_hd_synth_20w_50_street_noxmart.jpg",
+      "price": "30.00"
+    },
+    {
+      "id": "3",
+      "name": "Total Energies",
+      "img": "/docs/HTML/Project-Images/37490-17853829.jpg",
+      "price": "200.00"
+    },
+    {
+      "id": "4",
+      "name": "Jerry Can",
+      "img": "/docs/HTML/Project-Images/plastic-jerry-can-isolated-white-background.jpg",
+      "price": "20.00"
+    },
+    {
+      "id": "5",
+      "name": "Automobile Oil Trio",
+      "img": "/docs/HTML/Project-Images/plastic-bottles-from-automobile-oils-isolated-white.jpg",
+      "price": "60.00"
+    },
+    {
+      "id": "6",
+      "name": "Automobile Oil Squad",
+      "img": "/docs/HTML/Project-Images/plastic-bottles-from-automobile-oils-isolated-white (1).jpg",
+      "price": "80.00"
+    }
+  ],
+  "users": []
 }
