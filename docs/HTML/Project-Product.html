@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products</title>
-    <link rel="stylesheet" href="/docs/styles/motorella-products.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/docs/styles/motorella-products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <nav class="header">
         <ul class="nav-bar">
-            <input type="checkbox" id="check">
+            <input type="checkbox" id="check" />
             <span class="menu">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="Project-Product.html">Products</a></li>
@@ -26,43 +30,31 @@
     <div class="main">
         <div class="product-title">
             <h1>Products</h1>
+            
         </div>
         <div class="arrow-icon">
             <i class="fa-solid fa-angles-down fa-2xl"></i>
         </div>
         <div class="line"></div>
-        <div class="products-container">
-            <div class="product-item">
-                <img src="Project-Images/Trusaco-Winner-5W30-504-507-LL-SYMBOL-8000-ET.jpg" alt="Product1">
-                <a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-            </div>
-            <div class="product-item">
-                <img src="Project-Images/aceite_lubricante_liqui_moly_motorbike_hd_synth_20w_50_street_noxmart.jpg" alt="Product2">
-                <a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-            </div>
-            <div class="product-item">
-                <img src="Project-Images/37490-17853829.jpg" alt="Product3">
-                <a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-            </div>
-            <div class="product-item">
-                <img src="Project-Images/plastic-jerry-can-isolated-white-background.jpg" alt="">
-                <a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-            </div>
-            <div class="product-item">
-                <img src="Project-Images/plastic-bottles-from-automobile-oils-isolated-white.jpg" alt="">
-                <a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-            </div>
-            <div class="product-item">
-                <img src="Project-Images/plastic-bottles-from-automobile-oils-isolated-white (1).jpg" alt="">
-                <a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>
-            </div>
+        <div class="shopping-container">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="products-container"></div>
+        </div>
+
+
+        <div id="cart-container">
+
+            <button class="close-button">Close</button>
+            <button class="checkout-button">Checkout</button>
         </div>
     </div>
     <div class="footer">
         <div class="footer-top">
             <div class="socials">
-                <a href="https://www.instagram.com/motorellacolombia/" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-                <a href="https://www.facebook.com/MotorellaColombia/" target="_blank"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a href="https://www.instagram.com/motorellacolombia/" target="_blank"><i
+                        class="fa-brands fa-instagram fa-2xl"></i></a>
+                <a href="https://www.facebook.com/MotorellaColombia/" target="_blank"><i
+                        class="fa-brands fa-facebook fa-2xl"></i></a>
                 <a href="#" target="_blank"><i class="fa-regular fa-envelope fa-2xl"></i></a>
             </div>
         </div>
@@ -73,8 +65,37 @@
                 <p>Correo: servicioalcliente@motorella.net.com</p>
                 <p>Teléfono: +57 318 560 8850</p>
             </div>
-            <div class="footer-logo"><img src="Project-Images/0a8bea61-3eea-49c9-89dd-f98280d7b273.jpg" alt="logo"></div>
+            <div class="footer-logo">
+                <img src="Project-Images/0a8bea61-3eea-49c9-89dd-f98280d7b273.jpg" alt="logo" />
+            </div>
         </div>
     </div>
+
+    <script defer>
+        (async function items() {
+            try {
+                const productsContainer = document.querySelector(".products-container");
+                const response = await fetch('http://localhost:4500/products');
+                const data = await response.json();
+                console.log(data);
+
+                for (let i = 0; i < data.length; i++) {
+                    let productItem = document.createElement("div");
+                    productItem.className = "product-item";
+                    productItem.innerHTML = `<img src="${data[i].img}"" alt="Product${i + 1}"/><p>${data[i].name}</p><a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>`
+                    productsContainer.appendChild(productItem); 
+                }
+            } catch (e) {
+                console.error("ERROR" + e);
+            }
+        })();
+
+        const cartButton = document.querySelector(".fa-cart-shopping");
+        cartButton.addEventListener("click", () => {
+            const cartContainer = document.getElementById("card-container");
+            cartContainer.classList.toggle("visible");
+        })
+    </script>
 </body>
+
 </html>

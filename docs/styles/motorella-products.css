@@ -12,6 +12,8 @@ body {
     --motorgreen: #59BEAC;
     --motorred: #DB3551;
     --motorwhite: #F6E6C5;
+    --motorgray: #474b4f;
+    --motorblue: #2a8b91;
 }
 .nav-bar {
     width: 100%;
@@ -111,13 +113,25 @@ body {
     background-color:  #59BEAC;
     height: 0.5vh;
 }
-.products-container {
+.shopping-container {
     margin: 10vh auto;
+    width: 80%;
+}
+.fa-cart-shopping {
+    padding: 10px;
+    color: var(--motorred);
+    border: 1px solid var(--motorred);
+    border-radius: 50%;
+    font-size: xx-large;
+    position: relative;
+    right: 0;
+    cursor: pointer;
+}
+.products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: repeat(2, 1fr);
     place-items: center;
-    width: 80%;
+    width: 100%;
     background-color: var(--motorred);
     overflow: hidden;
     border-radius: 20px;
@@ -158,6 +172,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.cart-container {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    background-color: var(--motorgray);
+    border-radius: 20px 0px 0px 20px;
+    transition: right 0.5s ease-in;
+}
+.cart-container.visible {
+    right: 0;
 }
 
 .footer {

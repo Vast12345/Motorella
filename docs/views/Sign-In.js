@@ -54,68 +54,30 @@ document.getElementById("create-acc").addEventListener("submit", async (e) => {
 
         return response.json();
     }
+    e.stopPropagation();
+})
+document.getElementById("sign-in").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let signEmail = document.getElementById("sign-email").value;
+    let signPassword = document.getElementById("sign-password").value;
 
-    document.getElementById("sign-in").addEventListener("submit", async (e) => {
-        let signEmail = document.getElementById("sign-email").value;
-        let signPassword = document.getElementById("sign-password").value;
+    const obtainUser = await findUser(signEmail, signPassword);
+    console.table(obtainUser);
 
+    async function findUser(email, password) {
+        const response = await fetch("http://localhost:4500/users", {
+            method: "GET",
+        })
 
-        const obtainUser = await findUser(signEmail, signPassword);
-        console.table(obtainUser);
-
-        async function findUser(email, password) {
-            const response = await fetch("http://localhost:4500/users", {
-                method: "GET",
-            })
-
-            const data = await response.json();
-            for(let i = 0; i < data.length; i++) {
-                if(data[i].email === email) {
-                    return data[i].email, data[i].password
-                }
+        const data = await response.json();
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].email === email) {
+                return [data[i].email, data[i].password]
+            } else {
+                alert("Incorrect email or password");
             }
         }
+    }
+    e.stopPropagation();
 
-    })
-
-    //  fetch("http://localhost:4500/users", {
-    //     method: "GET",
-    // })
-
-    // .then((response) => response.json())
-    // .then((data) => {
-    //     console.log(data, "HELLO")
-    // })
-    // .catch((error) => {
-    //     console.error("ERROR" + error);
-    // })
-    // .finally(
-    //     console.log("OPERATION COMPLETE")
-    // )
-
-
-    //     fetch("http://localhost:4500/users", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             "name": `${name}`,
-    //             "email": `${email}`,
-    //             "password": `${password}`
-    //         })
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data)
-    //         })
-    //         .catch((error) => {
-    //             console.error("AN ERROR OCCURRED: " + error)
-    //         })
-    //         .finally(
-    //             console.log("The operation has finished")
-    //         )
-    // }
-
-    // e.stopPropagation();
 })
