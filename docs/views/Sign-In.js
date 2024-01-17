@@ -79,7 +79,7 @@ document.getElementById("sign-in").addEventListener("submit", async (e) => {
                 console.log(data[i]);
                 alert("You have signed in successfully");
                 localStorage.setItem('myAcc', JSON.stringify(data[i]));
-                return window.location.href = "/docs/index.html"
+                return window.location.href = "../index.html"
             }
         }
         alert("Incorrect email or password");
