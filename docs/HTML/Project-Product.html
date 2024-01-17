@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id=overlay></div>
     <nav class="header">
         <ul class="nav-bar">
             <input type="checkbox" id="check" />
@@ -21,7 +22,8 @@
                 <li><a href="Project-Product.html">Products</a></li>
                 <li><a href="Project-Contact.html">Contacts</a></li>
                 <li><a href="Project-About.html">About</a></li>
-                <li><a href="Project-Login.html">Sign-In</a></li>
+                <li><a href="HTML/Project-Login.html" id="sign-in-link">Sign-In</a></li>
+                <li><a href="HTML/Project-Login.html" style="color: #DB3551;" id="sign-out-link"></a></li>
                 <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
             </span>
             <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
@@ -30,7 +32,7 @@
     <div class="main">
         <div class="product-title">
             <h1>Products</h1>
-            
+
         </div>
         <div class="arrow-icon">
             <i class="fa-solid fa-angles-down fa-2xl"></i>
@@ -42,10 +44,14 @@
         </div>
 
 
-        <div id="cart-container">
+        <div class="cart-container">
+            <div class="productsCart-container">
 
-            <button class="close-button">Close</button>
-            <button class="checkout-button">Checkout</button>
+            </div>
+            <div class="button-container">
+                <button class="close-button">Close</button>
+                <button class="checkout-button">Checkout</button>
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -70,8 +76,16 @@
             </div>
         </div>
     </div>
+    <script src="/docs/views/account-style.js"></script>
+    <script defer type="module">
+        import { addProductItem } from "../views/Product.js"
 
-    <script defer>
+        const user = localStorage.getItem("myAcc");
+
+        if (user === null) {
+            window.location.href = "Project-Login.html"
+        }
+
         (async function items() {
             try {
                 const productsContainer = document.querySelector(".products-container");
@@ -82,20 +96,34 @@
                 for (let i = 0; i < data.length; i++) {
                     let productItem = document.createElement("div");
                     productItem.className = "product-item";
-                    productItem.innerHTML = `<img src="${data[i].img}"" alt="Product${i + 1}"/><p>${data[i].name}</p><a href="Project-Contact.html" class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></a>`
-                    productsContainer.appendChild(productItem); 
+                    productItem.innerHTML = `<img src="${data[i].img}"" alt="Product${i + 1}"/><h3>${data[i].name}</h3><p>${data[i].price}</p><button class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></button>`
+                    productsContainer.appendChild(productItem);
                 }
+                const buttons = document.querySelectorAll(".product-button");
+                buttons.forEach(button => {
+                    button.addEventListener("click", async (e) => {
+                        e.preventDefault();
+                        addProductItem(e);
+                    })
+                })
             } catch (e) {
                 console.error("ERROR" + e);
             }
         })();
 
         const cartButton = document.querySelector(".fa-cart-shopping");
+        const cartClose = document.querySelector(".close-button");
         cartButton.addEventListener("click", () => {
-            const cartContainer = document.getElementById("card-container");
-            cartContainer.classList.toggle("visible");
+            document.getElementById("overlay").classList.toggle("overlay");
+            document.querySelector(".cart-container").classList.toggle("visible");
+        });
+        cartClose.addEventListener("click", () => {
+            document.querySelector(".cart-container").classList.toggle("visible");
+            document.getElementById("overlay").classList.toggle("overlay");
         })
     </script>
+    <script src="../views/Product.js" defer></script>
+    <script src="../styles-js/account-style.js"></script>
 </body>
 
 </html>

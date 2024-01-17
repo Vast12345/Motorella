@@ -49,6 +49,17 @@
       "name": "Enzo",
       "email": "vasttheman@gmail.com",
       "password": "123123123"
+    },
+    {
+      "id": "f96d",
+      "name": "Daniel",
+      "email": "daniel@gmail.com",
+      "password": "daniel123",
+      "products": [
+        "",
+        "Total Energies",
+        "200.00"
+      ]
     }
   ]
 }

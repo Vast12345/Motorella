@@ -28,7 +28,7 @@ body {
     list-style: none;
     position: relative;
     background-color: var(--motorgreen);
-    padding: 12px 20px;
+    padding: 12px 0px;
     overflow: hidden;
 }
 
@@ -74,7 +74,7 @@ form {
 .menu li a::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 0;
     width: 0;
     height: 2px;
@@ -113,7 +113,7 @@ form {
 
 .sign-container {
     width: 50%;
-    height: 100vh;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,7 +123,7 @@ form {
 
 .create-container {
     width: 50%;
-    height: 100vh;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,14 +134,15 @@ form {
 .cover-container {
     z-index: 100;
     width: 50%;
-    height: 100vh;
-    background-color: pink;
+    height: 1000px;
+    background-color: var(--motorpink);
     position: absolute;
     right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border-radius: 50px 0px 0px 50px;
     transition: all 0.5s ease-out;
 }
@@ -164,7 +165,7 @@ input {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: 300px;
+    max-width: 300px;
     border-radius: 20px;
     box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.5);
 }
@@ -182,8 +183,8 @@ input {
 
 .activate-slide {
     background-color: var(--motorgreen);
-    padding: 10px 0;
-    width: 150px;
+    padding: 10px 10px;
+    max-width: 150px;
     border-radius: 10px;
     border: 1px solid var(--motorwhite);
     color: white;
@@ -197,7 +198,7 @@ input {
     width: 100%;
     height: 400px;
     background-color: var(--motorgreen);
-    padding: 1rem 3rem;
+    padding: 1rem 0;
 }
 
 .socials {
@@ -235,4 +236,123 @@ input {
 
 .footer-logo img {
     width: 200px;
+}
+@media (max-width: 510px) {
+    .nav-bar {
+        background: url(../HTML/Project-Images/menu_btn_d3afda2769ecbdf8d383793bedcaae82.png);
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 0;
+        z-index: 1000;
+        
+    }
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 1000;
+        background-color: var(--motorgreen);
+        transition: 0.2s ease-in-out;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu, .close-menu {display: block; right: 15px; top: 25px;}
+    #check:checked ~ .menu {right: 0;}
+    .main {
+        flex-direction: column;
+    }
+    .sign-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .create-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .cover-container {
+        z-index: 100;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--motorpink);
+        position: absolute;
+        top: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px 50px 0px 0px;
+        transition: all 0.5s ease-out;
+    }
+    .footer {
+        height: 700px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+    }
+    .footer-logo {
+        margin-top: 5rem;
+    }
+    .footer-logo img {
+        width: 30vw;
+    }
+}
+@media (min-width: 510px) and (max-width:768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 1000;
+        background-color: var(--motorgreen);
+        transition: 0.2s ease-in-out;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu, .close-menu {display: block;}
+    #check:checked ~ .menu {right: 0;}
+}
+@media (max-width: 768px) {
+    .footer {
+        height: auto;
+        padding: 1rem 0;
+    }
+    .directions p{
+        font-size: large;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        min-width: 200px;
+        margin-top: 1rem;
+        border-radius: 20px;
+    }
 }
