@@ -43,7 +43,20 @@
       "name": "Lorenzo Lopez",
       "email": "vastenzo@gmail.com",
       "password": "vastenzo1",
-      "products": []
+      "products": [
+        {
+          "image": "Project-Images/Trusaco-Winner-5W30-504-507-LL-SYMBOL-8000-ET.jpg",
+          "name": "Trusaco-Winner-3000",
+          "price": "50.00",
+          "amount": 1
+        },
+        {
+          "image": "Project-Images/aceite_lubricante_liqui_moly_motorbike_hd_synth_20w_50_street_noxmart.jpg",
+          "name": "Liqui-Moly-Motorbike",
+          "price": "30.00",
+          "amount": 2
+        }
+      ]
     },
     {
       "id": "1167",
