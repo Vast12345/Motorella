@@ -45,13 +45,11 @@
 
 
         <div class="cart-container">
-            <div class="productsCart-container">
-
-            </div>
             <div class="button-container">
                 <button class="close-button">Close</button>
                 <button class="checkout-button">Checkout</button>
             </div>
+            <div class="productsCart-container"></div>
         </div>
     </div>
     <div class="footer">
@@ -79,6 +77,8 @@
     <script src="/docs/views/account-style.js"></script>
     <script defer type="module">
         import { addProductItem } from "../views/Product.js"
+        import { updateProducts } from "../styles-js/updateCart.js"
+        import {checkOut} from "../models/patch.js"
 
         const user = localStorage.getItem("myAcc");
 
@@ -96,16 +96,26 @@
                 for (let i = 0; i < data.length; i++) {
                     let productItem = document.createElement("div");
                     productItem.className = "product-item";
-                    productItem.innerHTML = `<img src="${data[i].img}"" alt="Product${i + 1}"/><h3>${data[i].name}</h3><p>${data[i].price}</p><button class="product-button"><i class="fa-solid fa-arrow-right fa-xl"></i></button>`
+                    productItem.innerHTML = `<img src="${data[i].img}"" alt="Product${i + 1}"/><h3>${data[i].name}</h3><p>${data[i].price}</p><button class="product-button ${data[i].name}"><i class="fa-solid fa-arrow-right fa-xl"></i></button>`
                     productsContainer.appendChild(productItem);
                 }
+
                 const buttons = document.querySelectorAll(".product-button");
                 buttons.forEach(button => {
                     button.addEventListener("click", async (e) => {
                         e.preventDefault();
-                        addProductItem(e);
+                        addProductItem(data, button);
                     })
                 })
+                document.querySelector(".checkout-button").addEventListener("click", (e) => {
+                    const accString = localStorage.getItem("myAcc");
+                    const acc = JSON.parse(accString);
+                    checkOut(acc)
+                })
+                const myAccString = localStorage.getItem("myAcc");
+                const myAcc = JSON.parse(myAccString);
+                updateProducts(myAcc);
+
             } catch (e) {
                 console.error("ERROR" + e);
             }

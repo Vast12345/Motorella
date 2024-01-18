@@ -53,7 +53,7 @@ document.getElementById("create-acc").addEventListener("submit", async (e) => {
             }),
         });
 
-        return response.json();
+        return await response.json();
     }
     e.stopPropagation();
 })
@@ -85,5 +85,4 @@ document.getElementById("sign-in").addEventListener("submit", async (e) => {
         alert("Incorrect email or password");
     }
     e.stopPropagation();
-
 })
